@@ -1169,10 +1169,10 @@ async function renderOdhodki() {
   odhodkiData.forEach(function(od) {
     var pts = od.datum.split('-'), dlbl = parseInt(pts[2]) + '. ' + M[parseInt(pts[1])-1] + ' ' + pts[0];
     var icon = katIcons[od.kategorija] || '📋';
-    h += '<div class="od-card"><div class="od-top"><div><div class="od-opis">' + icon + ' ' + od.opis + '</div><div class="od-meta">' + od.kategorija + ' · ' + dlbl + '</div></div><button class="od-del" onclick="delOdhodek('' + od.id + '')">×</button></div>';
+    h += '<div class="od-card"><div class="od-top"><div><div class="od-opis">' + icon + ' ' + od.opis + '</div><div class="od-meta">' + od.kategorija + ' · ' + dlbl + '</div></div><button class="od-del" onclick="delOdhodek('" + od.id + "')">×</button></div>';
     h += '<div class="od-totals"><div class="od-tbox"><div class="od-tlbl">Brez DDV</div><div class="od-tval">' + fe(od.znesek_brez_ddv) + '</div></div><div class="od-tbox"><div class="od-tlbl">DDV</div><div class="od-tval">' + fe(od.ddv) + '</div></div><div class="od-tbox"><div class="od-tlbl">Skupaj</div><div class="od-tval" style="color:#f88;">' + fe(od.skupaj) + '</div></div></div>';
     if (od.racun_url) {
-      h += '<img src="' + od.racun_url + '" class="racun-thumb" onclick="showRacun('' + od.racun_url + '')" alt="Račun">';
+      h += '<img src="' + od.racun_url + '" class="racun-thumb" onclick="showRacun('" + od.racun_url + "')" alt="Račun">';
     }
     h += '</div>';
   });
